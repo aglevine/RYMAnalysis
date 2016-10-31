@@ -20,17 +20,17 @@
 #done
 
 #!/bin/sh
-year="1997"
-while [ $year -lt 1999 ]
+year="1990"
+while [ $year -lt 2014 ]
 do
   echo $year >> "top"$year"RYMList.txt"
-  page="15"
+  page="1"
   while [ $page -lt 18 ]
   do
      echo $year >> "top"$year"RYMList.txt"
      echo $page >> "top"$year"RYMList.txt"
      curl "http://rateyourmusic.com/customchart?page=$page&chart_type=top&type=album&year=$year&genre_include=1&include_child_genres=1&genres=&include_child_genres_chk=1&include=both&origin_countries=&limit=none&countries=" >> "top"$year"RYMList.txt"
-     sleep 10
+     sleep 600
      echo $year
      echo $page
      ((page++))
