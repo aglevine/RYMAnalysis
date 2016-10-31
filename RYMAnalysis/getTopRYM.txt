@@ -1,25 +1,5 @@
 #!/bin/sh
-
-#year="1900"
-#while [ $year -lt 2016 ]
-#do
-#  echo $year >> "top"$year"RYMList.txt"
-  #curl "http://rateyourmusic.com/customchart?page=1&chart_type=top&type=album&year="$year"&genre_include=1&include_child_genres=1&genres=&include_child_genres_chk=1&include=both&origin_countries=&limit=none&countries=" > "topRYM"$year".txt"
-  #curl "http://rateyourmusic.com/customchart?page=2&chart_type=top&type=album&year=$year&genre_include=1&include_childgenres=1&genres=rock&include_child_genres_chk=1&include=both&origin_countries=&limit=none&countries=" >> rock.txt
-#  curl "http://rateyourmusic.com/customchart?page=1&vif=3fie&chart_type=top&type=album&year=$year&genre_include=1&include_child_genres=1&genres=&include_child_genres_chk=1&include=both&origin_countries=&limit=none&countries=" > "topRYM.txt"
-#  #sleep 5
-#  echo $year
-#  python getAlbumData.py "topRYM.txt" 0.0 500 >> "top"$year"RYMList.txt"
-#  lines=$(wc -l < "topRYM.txt")
-#  echo $lines
-#  if [[ $lines -gt 110 ]]
-#    then
-#      ((year++))
-#  fi
-#  sleep 600
-#done
-
-#!/bin/sh
+#scrape data from RYM
 year="1990"
 while [ $year -lt 2014 ]
 do
@@ -30,7 +10,7 @@ do
      echo $year >> "top"$year"RYMList.txt"
      echo $page >> "top"$year"RYMList.txt"
      curl "http://rateyourmusic.com/customchart?page=$page&chart_type=top&type=album&year=$year&genre_include=1&include_child_genres=1&genres=&include_child_genres_chk=1&include=both&origin_countries=&limit=none&countries=" >> "top"$year"RYMList.txt"
-     sleep 600
+     sleep 10
      echo $year
      echo $page
      ((page++))
